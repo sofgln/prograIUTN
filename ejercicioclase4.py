@@ -24,18 +24,20 @@
 from moduloejercicio4 import *
 
 
-casadoMayoresCounter = 0
-mujerSolteraJovenEdad = 0
-mujerSolteraJovenNumero = 0
-totalSinDescuento = 0
-porcentajeSesentaAños = 0
-pasajerosCounter = 0
-pasajerosMayoresASesentaCounter = 0
-hayDescuento = False
-totalDescuento = 0
 
 
 def nuevoViaje():
+    
+    casadoMayoresCounter = 0
+    mujerSolteraJovenEdad = 0
+    mujerSolteraJovenNumero = 0
+    totalSinDescuento = 0
+    porcentajeSesentaAños = 0
+    pasajerosCounter = 0
+    pasajerosMayoresASesentaCounter = 0
+    hayDescuento = False
+    totalDescuento = 0
+    banderaMujerJoven = False
     while True :
       numeroCliente = pedirNumeroCliente()
       estadoCivil = seleccionarEstadoCivil()
@@ -52,9 +54,15 @@ def nuevoViaje():
       if estadoCivil =="casado" and edad > 40 and edad < 60:
          casadoMayoresCounter += 1
       # informe b
-      if genero == "femenino" and edad > 0 and edad < mujerSolteraJovenEdad:
-         mujerSolteraJovenEdad = edad
-         mujerSolteraJovenNumero = numeroCliente
+      if genero == "femenino" and estadoCivil == "soltero":
+         if banderaMujerJoven == False:
+            mujerSolteraJovenEdad = edad
+            mujerSolteraJovenNumero = numeroCliente
+         else:
+            if edad < mujerSolteraJovenEdad:
+               mujerSolteraJovenEdad = edad
+               mujerSolteraJovenNumero= numeroCliente
+
 
     #informe d
       if edad >= 60 :
@@ -74,24 +82,24 @@ def nuevoViaje():
       if continuar == "no":
          break
       
-      #informe a
-      if casadoMayoresCounter > 0:
+    #informe a
+    if casadoMayoresCounter > 0:
         print(f"La cantidad total  de pasajeros casados entre 40 y 60 años es {casadoMayoresCounter}")
 
-      #informe b
-      print(f"La clienta más jóven soltera tiene el número de cliente {mujerSolteraJovenNumero} con {mujerSolteraJovenEdad} años")
+    #informe b
+    print(f"La clienta más jóven soltera tiene el número de cliente {mujerSolteraJovenNumero} con {mujerSolteraJovenEdad} años")
 
-      #informe c
-      print(f"el viaje total sin descuentos es de ${totalSinDescuento}")
+    #informe c
+    print(f"el viaje total sin descuentos es de ${totalSinDescuento}")
 
-      #informe D
-      if hayDescuento:
+    #informe D
+    if hayDescuento:
          print(f"Por haber un porcentaje del {porcentajeSesentaAños}% de pasajeros mayores a 60 años al viaje se le aplica un descuento del 25% quedando un precio total de ${totalDescuento}")
 
 
 
 
-    
+nuevoViaje()
 
 
 
