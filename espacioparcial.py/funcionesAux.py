@@ -20,30 +20,38 @@ def busqueda_lineal(lista : list, valor : any) -> int:
 
 #Validar nombre
 def validarNombre():
-    nombre = input("", "Ingrese nombre: ")
+    nombre = input( "Ingrese nombre: ")
     while nombre == "":
-             nombre = input("", "Reingrese nombre: ")
+             nombre = input("Reingrese nombre: ")
 
 
 #validar edad
 
 
 def validarEdad():
-      edad = int(input("Mensaje", "Ingrese una edad: "))
+      edad = int(input("Ingrese una edad: "))
       while edad < 18 or edad >= 90:
-            edad = int(input("Mensaje", "Reingrese una edad valida: "))
+            edad = int(input( "Reingrese una edad valida: "))
 
 #validar legajo
-def validarLegajo():
- legajo = int(input("Mensaje", "Ingrese un numero de legajo: "))
- while legajo < 1000 or legajo > 9999:
-            legajo = int(input("Mensaje", "Registre un legajo valido: ")) 
+def validarLegajo(legajosRegistrados):
+ legajo = int(input( "Ingrese un numero de legajo: "))
+ while legajo not in legajosRegistrados:
+            legajo = int(input( "Registre un legajo valido: "))
+ return legajo 
 
 #validar estado civil
 def valirdarEstadoCivil():
-    estado = input("Mensaje", "Registre su estado civil: ")
+    estado = input( "Registre su estado civil: ")
     while estado != "Soltero/a" and estado != "Casado/a" and estado != "Viudo/a" and estado != "Divorciado/a":
-         estado = input("Mensaje", "Reingrese su estado civil valido: ")
+         estado = input("Reingrese su estado civil valido: ")
+
+
+def validarOpciones(listaOpciones:list):
+     opcion = int(input("Elija una opción:"))
+     while opcion not in listaOpciones:
+          opcion =int(input("ingrese una opción: "))
+     return opcion
 
 
 

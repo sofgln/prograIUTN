@@ -12,11 +12,11 @@ def mostrarMatriz(matriz):
         print("")
 
 
-print(matrizEjemplo[1][2]) #primero fila después columna
-print(matrizEjemplo[0][-1])#muestra el último elemento
+#print(matrizEjemplo[1][2]) #primero fila después columna
+#print(matrizEjemplo[0][-1])#muestra el último elemento
 
 #mostrar una sola fila
-print(matrizEjemplo[1])
+#print(matrizEjemplo[1])
 
 #mostrar coordenadas de donde se encuentra cada dato en una matriz
 def mostrarCoordenadasMatriz(matriz):
@@ -35,8 +35,6 @@ def modificarDato(matriz,fila:int,columna:int,dato)->None:
     print(f"el nuevo valor de la fila {fila} columna {columna} es: " +matriz[fila][columna])
 
 
-print(modificarDato(matrizEjemplo,0,1,"nahue"))
-print(matrizEjemplo[0][1])
 
 
 #inicializar matriz
@@ -50,9 +48,7 @@ def iniciarMatriz(filas:int,columnas:int,valorInicial: any)-> list:
         matriz += [fila]
     return matriz
 
-matriz_nueva= iniciarMatriz(2,4,"a")
 
-print(mostrarMatriz(matriz_nueva))
 
 def cargarMatriz(matriz:list):
     """esta función toma como parametro una matriz y permite cargarla manualmente"""
@@ -60,8 +56,6 @@ def cargarMatriz(matriz:list):
         for j in range(len(matriz[i])):
             matriz[i][j]= int(input(f"Fila {i} Columna{j}: "))
 
-cargarMatriz(matriz_nueva)
-mostrarMatriz(matriz_nueva)
 
 def cargaAleatoriaMatriz(matriz:list):
     """permite la carga de una matriz indicandole fila y 
@@ -74,8 +68,6 @@ def cargaAleatoriaMatriz(matriz:list):
         matriz[fila][columna]= dato
         seguir = input("desea seguir cargando? s/n: ").lower
 
-print(cargaAleatoriaMatriz(matriz_nueva))  
-print(mostrarMatriz(matriz_nueva))   
 
 def buscar_dato_en_matriz(matriz: list[list], valor: int):
     """buscar dato especifico en matriz"""
@@ -116,6 +108,9 @@ def busqueda_lineal_matriz2(matriz : list, valor : any) -> list:
             retorno = [i, resultado]
             break
     return retorno
+
+
+
 
 
 
