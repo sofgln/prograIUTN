@@ -78,11 +78,24 @@ print(cargaAleatoriaMatriz(matriz_nueva))
 print(mostrarMatriz(matriz_nueva))   
 
 def buscar_dato_en_matriz(matriz: list[list], valor: int):
+    """buscar dato especifico en matriz"""
     for fila in range(len(matriz)):
         for columna in range(len(matriz[fila])):
             if matriz[fila][columna] == valor:
                 print(f'El valor: {valor} fue encontrado en la fila {fila} | columna {columna}')
 
+
+def suma_matrices(matriz_1: list[list], matriz_2: list[list]) -> list[list]:
+    """suma 2 matrices y retorna la nueva matriz"""
+    matriz_3 = []
+    
+    for fila in range(len(matriz_1)):
+        fila_de_suma = []
+        for columna in range(len(matriz_1[fila])):
+            suma = matriz_1[fila][columna] + matriz_2[fila][columna]
+            fila_de_suma.append(suma)
+        matriz_3.append(fila_de_suma)
+    return matriz_3
 
 
 
