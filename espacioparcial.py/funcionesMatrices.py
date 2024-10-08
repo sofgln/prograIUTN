@@ -97,6 +97,26 @@ def suma_matrices(matriz_1: list[list], matriz_2: list[list]) -> list[list]:
         matriz_3.append(fila_de_suma)
     return matriz_3
 
+def busqueda_lineal_matriz2(matriz : list, valor : any) -> list:
+    """
+    Realiza una busqueda sobre una matriz de forma lineal
+
+    Parametros:
+    matriz: representa el conjunto de datos sobre el cual se va a realizar la busqueda
+    valor: valor del cual se desea saber su indice
+
+    Retorno: 
+    Retorna None si el valor no se encuentra o una lista con los indices del elemento
+    encontrado
+    """
+    retorno = None
+    for i in range(len(matriz)):
+        resultado = busqueda_lineal_matriz2(matriz[i], valor)
+        if resultado != None:
+            retorno = [i, resultado]
+            break
+    return retorno
+
 
 
 
