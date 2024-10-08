@@ -1,0 +1,95 @@
+#como mostrar una matriz
+matrizEjemplo = [[1,2,3,4],
+                 [5,6,7,8]]
+
+#mostrar matriz
+def mostrarMatriz(matriz):
+    """ esta funcion recibe una matriz y la muestra
+    de una manera amigable al usuario """
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            print(matriz[i][j], end=" ")
+        print("")
+
+
+print(matrizEjemplo[1][2]) #primero fila después columna
+print(matrizEjemplo[0][-1])#muestra el último elemento
+
+#mostrar una sola fila
+print(matrizEjemplo[1])
+
+#mostrar coordenadas de donde se encuentra cada dato en una matriz
+def mostrarCoordenadasMatriz(matriz):
+    for fila in range(len(matriz)):
+        for columna in range(len(matriz[fila])):
+            dato = matriz[fila][columna]
+            print(f'Fila: {fila} | Columna: {columna} | Dato: {dato}')
+
+#funcion para modificar matriz
+
+def modificarDato(matriz,fila:int,columna:int,dato)->None:
+    """esta función permite modificar un dato pasandole a la 
+    función su ubicación  y el dato a ingresar"""
+    matriz[fila][columna]= dato
+
+    print(f"el nuevo valor de la fila {fila} columna {columna} es: " +matriz[fila][columna])
+
+
+print(modificarDato(matrizEjemplo,0,1,"nahue"))
+print(matrizEjemplo[0][1])
+
+
+#inicializar matriz
+def iniciarMatriz(filas:int,columnas:int,valorInicial: any)-> list:
+    """esta función inicializa una matriz a demanda indicandole 
+    su cantidad de filas, columnas y dato inicial, retorna una matriz en 0 para
+    inicializarla dentro de una variable"""
+    matriz=[]
+    for i in range(filas):
+        fila = [valorInicial] * columnas
+        matriz += [fila]
+    return matriz
+
+matriz_nueva= iniciarMatriz(2,4,"a")
+
+print(mostrarMatriz(matriz_nueva))
+
+def cargarMatriz(matriz:list):
+    """esta función toma como parametro una matriz y permite cargarla manualmente"""
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            matriz[i][j]= int(input(f"Fila {i} Columna{j}: "))
+
+cargarMatriz(matriz_nueva)
+mostrarMatriz(matriz_nueva)
+
+def cargaAleatoriaMatriz(matriz:list):
+    """permite la carga de una matriz indicandole fila y 
+    columna donde se desea ingresar el dato"""
+    seguir = "s"
+    while seguir == "s":
+        fila =int(input("Indice de fila:"))
+        columna =int(input("Indice de columna:"))
+        dato =int(input("dato a cargar:"))
+        matriz[fila][columna]= dato
+        seguir = input("desea seguir cargando? s/n: ").lower
+
+print(cargaAleatoriaMatriz(matriz_nueva))  
+print(mostrarMatriz(matriz_nueva))   
+
+def buscar_dato_en_matriz(matriz: list[list], valor: int):
+    for fila in range(len(matriz)):
+        for columna in range(len(matriz[fila])):
+            if matriz[fila][columna] == valor:
+                print(f'El valor: {valor} fue encontrado en la fila {fila} | columna {columna}')
+
+
+
+
+
+
+
+
+
+
+

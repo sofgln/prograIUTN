@@ -58,6 +58,7 @@ def nuevoViaje():
          if banderaMujerJoven == False:
             mujerSolteraJovenEdad = edad
             mujerSolteraJovenNumero = numeroCliente
+            banderaMujerJoven = True
          else:
             if edad < mujerSolteraJovenEdad:
                mujerSolteraJovenEdad = edad
